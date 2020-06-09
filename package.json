@@ -1,0 +1,47 @@
+{
+  "name": "apollo-server",
+  "version": "1.0.0",
+  "description": "- GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. - GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. - Apps using GraphQL are fast and stable because they control the data they get, not the server.  - GraphQL APIs are organized in terms of types and fields, not endpoints. Access the full capabilities of your data from a single endpoint. - Once a GraphQL service is running (typically at a URL on a web service), it can receive GraphQL queries to validate and execute. A received query is first checked to ensure it only refers to the types and fields defined, then runs the provided functions to produce a result.",
+  "main": "index.js",
+  "dependencies": {
+    "apollo-server-express": "^2.14.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql": "^15.1.0",
+    "merge-graphql-schemas": "^1.7.8",
+    "promise": "^8.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "nodemon": "^2.0.4",
+    "eslint": "^7.2.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-graphql": "^4.0.0",
+    "eslint-plugin-import": "^2.21.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run nodemon",
+    "nodemon": "nodemon --exec babel-node src",
+    "lint": "./node_modules/.bin/eslint src",
+    "lint:fix": "npx eslint --fix src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nxshiva/apollo-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nxshiva/apollo-server/issues"
+  },
+  "homepage": "https://github.com/nxshiva/apollo-server#readme"
+}
