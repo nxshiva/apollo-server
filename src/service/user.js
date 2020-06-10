@@ -1,0 +1,38 @@
+class User {
+    constructor() {
+        this.users = new Map();
+        this.id = 0;
+    }
+
+    getAllUsers() {
+        const user = [];
+        for (const value of this.users.values()) {
+            user.push(value);
+        }
+        return user;
+    }
+
+    createUser(user) {
+        this.id += 1;
+        this.users.set(this.id, { ...user, id: this.id });
+        return this.users.get(this.id);
+    }
+
+    updateUser(id, role) {
+        const user = this.users.get(Number(id));
+        this.users.set(Number(id), { ...user, role });
+        return this.users.get(Number(id));
+    }
+
+    deleteUser(id) {
+        // const deletedUser = this.users.get(Number(id));
+        this.users.delete(Number(id));
+        return id;
+    }
+
+    getUser(id) {
+        return this.users.get(Number(id));
+    }
+}
+
+export default new User();
