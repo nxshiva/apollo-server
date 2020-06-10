@@ -11,7 +11,7 @@ class Server {
         this.app = express();
     }
 
-    bootstrap = () => {
+    bootstrap() {
         console.log('Inside Bootstrap');
         this.initBodyParser();
         this.setupRoutes();
@@ -19,7 +19,7 @@ class Server {
     }
 
 
-    initBodyParser = () => {
+    initBodyParser() {
         const { app } = this;
 
         console.log('Inside init');
@@ -42,7 +42,7 @@ class Server {
         });
     }
 
-    setupRoutes = () => {
+    setupRoutes() {
         const { app } = this;
         this.app.get('/health-check', (req, res) => {
             console.log('Inside health check');
