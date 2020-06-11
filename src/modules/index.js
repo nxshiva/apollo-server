@@ -3,6 +3,7 @@ import path from 'path';
 
 import * as user from './user';
 import * as trainee from './trainee';
+import * as traineeSubs from './trainee';
 
 const typesArray = fileLoader(path.join(__dirname, './**/*.graphql'));
 
@@ -17,6 +18,9 @@ export default {
         },
         Mutation: {
             ...trainee.Mutation,
+        },
+        Subscription: {
+            ...traineeSubs.Subscription,
         }
     },
     typeDefs,

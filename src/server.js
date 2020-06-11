@@ -1,6 +1,7 @@
 import express from 'express';
 import Promise from 'promise';
 import * as bodyParser from 'body-parser';
+import { createServer } from 'http';
 import { ApolloServer } from 'apollo-server-express';
 
 
@@ -11,7 +12,7 @@ class Server {
         this.app = express();
     }
 
-    bootstrap() {
+    bootstrap = () => {
         console.log('Inside Bootstrap');
         this.initBodyParser();
         this.setupRoutes();
@@ -19,7 +20,7 @@ class Server {
     }
 
 
-    initBodyParser() {
+    initBodyParser = () => {
         const { app } = this;
 
         console.log('Inside init');
@@ -30,10 +31,10 @@ class Server {
         app.use(bodyParser.json());
     }
 
-    run() {
+    run = () => {
         const { port } = this.config;
 
-        this.app.listen(port, (err) => {
+        this.httpServer.listen(port, (err) => {
             if (err) {
                 console.log('error');
                 throw err;
@@ -42,7 +43,7 @@ class Server {
         });
     }
 
-    setupRoutes() {
+    setupRoutes = () => {
         const { app } = this;
         this.app.get('/health-check', (req, res) => {
             console.log('Inside health check');
@@ -57,7 +58,7 @@ class Server {
         return this;
     }
 
-    setupApollo(schema) {
+    setupApollo = (schema) => {
         const { app } = this;
         this.server = new ApolloServer({
             ...schema,
@@ -66,6 +67,8 @@ class Server {
             })
         });
         this.server.applyMiddleware({ app });
+        this.httpServer = createServer(app);
+        this.server.installSubscriptionHandlers(this.httpServer);
         this.run();
     }
 }
