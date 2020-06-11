@@ -32,6 +32,7 @@
         "require-await": 2,
         "react/prop-types": 0,
         "no-var": 2,
+        "eol-last": ["error", "always"],
         "linebreak-style": [
             2,
             "unix"
