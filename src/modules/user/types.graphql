@@ -4,3 +4,8 @@ type User {
     email: String!
     role: String!
 }
+
+input LoginUserInput {
+    email: String!
+    password: String!
+}

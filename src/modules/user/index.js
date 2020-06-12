@@ -1,1 +1,4 @@
-export { default as Resolver } from './query';
+import Query from './query';
+import Mutation from './mutation';
+
+export { Query, Mutation };
