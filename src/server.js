@@ -3,6 +3,7 @@ import Promise from 'promise';
 import * as bodyParser from 'body-parser';
 import { createServer } from 'http';
 import { ApolloServer } from 'apollo-server-express';
+import { UserAPI } from './datasource';
 
 
 class Server {
@@ -62,6 +63,9 @@ class Server {
         const { app } = this;
         this.server = new ApolloServer({
             ...schema,
+            dataSources: () => ({
+                    userAPI: new UserAPI(),
+                }),
             onHealthCheck: () => new Promise((resolve) => {
                 resolve('I am ok');
             })
