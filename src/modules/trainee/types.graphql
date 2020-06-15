@@ -1,5 +1,17 @@
+type GetAll {
+    count: Int
+    records: [User]
+}
+
 input CreateUserInput {
     name: String!
     email: String!
-    role: String!
+    password: String!
+}
+
+input UpdateUserInput {
+    id: ID!
+    name: String
+    email: String
+    role: String
 }
