@@ -11,7 +11,7 @@ export class TraineeAPI extends RESTDataSource {
         request.headers.set('Authorization', this.context.token);
     }
 
-    getAllTrainee = async (payload) => await this.get('/', payload)
+    getAllTrainee = async (options) => await this.get('/', options)
 
     createTrainee = async (user) => await this.post('/', user)
 

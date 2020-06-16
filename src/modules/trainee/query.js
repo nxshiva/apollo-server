@@ -3,7 +3,7 @@ import { AuthenticationError } from 'apollo-server';
 export default {
     getAllTrainee: async (parent, args, context) => {
         try {
-            const { payload: { limit, skip } } = args;
+            const { options: { limit, skip } } = args;
             const { dataSources: { traineeAPI } } = context;
             const response = await traineeAPI.getAllTrainee({limit, skip});
             return response.data;
