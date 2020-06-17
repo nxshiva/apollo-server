@@ -1,4 +1,4 @@
-import { AuthenticationError } from 'apollo-server';
+import { ApolloError, AuthenticationError } from 'apollo-server';
 
 export default {
     loginUser: async (parent, args, context) => {
@@ -8,7 +8,7 @@ export default {
         const response = await userAPI.loginUser({email, password});
         return response.data;
         }catch(error) {
-            throw new AuthenticationError('Invalid User');
+            throw new ApolloError('Invalid User');
         }
     }
 };

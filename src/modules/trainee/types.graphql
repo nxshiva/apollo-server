@@ -15,3 +15,8 @@ input UpdateUserInput {
     email: String
     role: String
 }
+
+input GetAllUserInput {
+    limit: Int
+    skip: Int
+}
